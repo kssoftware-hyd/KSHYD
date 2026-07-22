@@ -1,0 +1,125 @@
+/* ============================================================
+   KS SOFTWARE — BASE STYLES
+   ============================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+
+body{
+  background:var(--bg-primary);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:background var(--t-med) var(--ease-out), color var(--t-med) var(--ease-out);
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input,textarea,select{font-family:inherit;color:inherit;}
+svg{display:block;}
+
+::selection{background:var(--primary);color:#fff;}
+
+:focus-visible{
+  outline:2px solid var(--glow);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-.02em;
+}
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.section{
+  position:relative;
+  padding:150px 0;
+}
+.section--tight{padding:100px 0;}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-label);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent-2);
+  margin-bottom:20px;
+}
+.eyebrow::before{
+  content:'';
+  width:22px;height:1px;
+  background:var(--accent-2);
+  box-shadow:0 0 8px var(--accent-2);
+}
+
+.section-head{
+  max-width:680px;
+  margin-bottom:64px;
+}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+.section-title{
+  font-size:clamp(2.1rem, 3.6vw, 3.2rem);
+  margin-bottom:20px;
+  color:var(--text);
+}
+.section-title .grad{
+  background:var(--grad-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.section-desc{
+  color:var(--text-secondary);
+  font-size:1.08rem;
+  line-height:1.7;
+  max-width:56ch;
+}
+.center .section-desc{margin-left:auto;margin-right:auto;}
+
+.text-muted{color:var(--muted);}
+
+/* Divider — a thin arc rather than a straight rule, echoing the brand mark's swoosh */
+.arc-divider{
+  position:relative;
+  height:90px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.arc-divider svg{width:100%;height:100%;}
+
+/* Skip link */
+.skip-link{
+  position:absolute;
+  left:16px;top:-60px;
+  background:var(--bg-elevated);
+  color:var(--text);
+  padding:12px 18px;
+  border-radius:var(--r-sm);
+  z-index:9999;
+  transition:top .2s var(--ease-out);
+  border:1px solid var(--border-strong);
+}
+.skip-link:focus{top:16px;}

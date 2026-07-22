@@ -1,0 +1,55 @@
+/* ============================================================
+   KS SOFTWARE — ANIMATIONS
+   ============================================================ */
+
+@keyframes auroraShift{
+  0%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(-2%,3%) scale(1.06);}
+  100%{transform:translate(3%,-2%) scale(1);}
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+@keyframes floatY{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+@keyframes scrollDrip{
+  0%{top:-100%;}
+  100%{top:100%;}
+}
+
+@keyframes marquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+@keyframes pulseGlow{
+  0%{box-shadow:0 0 0 0 rgba(16,185,129,.45);}
+  70%{box-shadow:0 0 0 16px rgba(16,185,129,0);}
+  100%{box-shadow:0 0 0 0 rgba(16,185,129,0);}
+}
+
+@keyframes typingDot{
+  0%,60%,100%{transform:translateY(0);opacity:.5;}
+  30%{transform:translateY(-4px);opacity:1;}
+}
+
+/* Scroll-reveal base state — activated via JS adding .is-visible */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+[data-reveal].is-visible{opacity:1;transform:translateY(0);}
+[data-reveal="fade"]{transform:none;}
+[data-reveal].is-visible ~ [data-reveal]{}
+
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{opacity:1;transform:none;transition:none;}
+  .aurora,.orbit-ring,.orbit-node,.marquee-track{animation:none !important;}
+}
